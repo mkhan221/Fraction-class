@@ -1,0 +1,161 @@
+Script started on Mon 04 Sep 2023 04:43:02 PM CDT
+]0;py9242yg@csci4:~/t1[?1034h[py9242yg@csci4 t1]$ cat fraction.c[Kh
+#ifndef FRACTION_H
+#define FRACTION_H
+
+
+
+class fraction
+{
+ private:
+  /**numerator of the fraction*/
+  int num;
+  /**denominator of the fraction*/
+  int denom;
+ public:
+  /**Constructor;
+     /*@pre none
+     /*@post intializes the value of the num and denom to default values*/
+  fraction();
+    
+  /**Constructor;
+     /*@param int x the numerator of the fraction
+     /*@param int y the denominator of the fraction
+     /*@pre none
+     /*@post takes user input values of x and y*/
+  fraction(int x, int y);
+    
+  /**Member function*/
+  /** Sets the numerator
+      /*@param int x the value of the numerator
+      /*@pre none
+      /*@post the numerator has been set to a particular value*/
+  void setNum(int x);
+    
+  /**Member function*/
+  /** Sets the denominator*/
+  /*@param int y the values of the denominator
+    /*@pre none
+    /*@post the denominator has been set to a particular value*/
+  void setDenom(int y);
+    
+  /**Member function*/
+  /**returns the numerator*/
+  /*@pre none
+    /*@post the value returned is the numerator*/
+  int getNum();
+    
+  /**Member function*/
+  /**returns the denominator*/
+  /*@pre none
+    /*@post the value returned is the denominator*/
+  int getDenom();
+    
+  /**Member function*/
+  /**Displays a fraction*/
+  /*@pre none
+    /*@post displays a fraction*/
+  void display();
+
+
+};
+
+#endif
+]0;py9242yg@csci4:~/t1[py9242yg@csci4 t1]$ cat fraction.cpp
+
+/** file:fraction.cpp*/
+/** Class IMPLEMENTED: fraction (See fraction.h for documentation.)*/
+#include "fraction.h"
+#include <iostream>
+using namespace std;
+
+fraction::fraction()
+{
+  num=0;  //constructor intializes value of fraction if not given by the user
+  denom=1;
+}
+fraction::fraction(int x, int y)
+{
+  num=x;  //constructor takes fraction value from the user
+  denom=y;
+}
+void fraction::setNum(int x)
+{
+  num=x; //sets the numerator
+}
+void fraction::setDenom(int y)
+{ if (denom !=0)
+    {
+      denom=y; //sets the denominator
+    }
+  else
+    {
+      cout<<"Denominator cannot be zero."<<endl;
+    }
+}
+int fraction::getNum()
+{
+  return num; //returns the numerator
+}
+int fraction::getDenom()
+{
+  return denom; //returns the denominator
+}
+void fraction::display()
+{
+  cout<<num<<"/"<<denom; //displays the fraction
+}
+]0;py9242yg@csci4:~/t1[py9242yg@csci4 t1]$ cat project1_task1.cpp
+/*This program demonstrates a fraction class with different functions
+@file:project1_task1.cpp
+Mohammad Aryan Khan
+py9242yg
+09/05/2023
+Instructor:Jie Meichsner
+*/
+#include "fraction.h"
+#include<iostream>
+using namespace std;
+int main()
+{
+  int x,y;
+  cout<<"Enter the first fraction: numerator and denominator\n";
+  cin>>x>>y;
+  fraction f1(x,y);
+  fraction f2;
+  cout<<"Enter the second fraction: numerator and denominator\n";
+  cin>>x>>y;
+  f2.setNum(x);
+  f2.setDenom(y);
+  fraction f3;
+  fraction f4(10,20);
+  cout<<"The two fractions entered are\n";
+  cout<<"f1="; 
+  f1.display();
+  cout<<"\nf2=";
+  cout<<f2.getNum()<<"/"<<f2.getDenom()<<"\n";
+  cout<<"f3=";
+  f3.display();
+  cout<<"\nf4=";
+  f4.display();
+}
+
+
+
+
+
+
+
+]0;py9242yg@csci4:~/t1[py9242yg@csci4 t1]$ g++[K[K[Kcat project1_task1.cpp[6Pfraction.cpp[2Phemacs fraction.cpp[2Pg++[C[C[C[C[C[C[C[C[C[C[C[C[C[2@emacs[C[C[C[C[C[C[C[C[C[C[C[C[C[2Pg++[C[C[C[C[C[C[C[C[C[C[C[C[C[2@emacs[C[C[C[C[C[C[C[C[C[C[C[C[C[2Pg++[C[C[C[C[C[C[C[C[C[C[C[C[C[2@emacs[C[C[C[C[C[C[C[C[C[C[C[C[C[2Pg++[C[C[C[C[C[C[C[C[C[C[C[C[Cemacs project1_task1.cpp[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[8Pg++ fraction.cppemacs project1_task1.cpp[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[8Pg++ fraction.cpp[2@emacs[C[C[C[C[C[C[C[C[C[C[C[C[C[2Pg++[C[C[C[C[C[C[C[C[C[C[C[C[C[2@emacs[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kg++ -o [[Kproject1_task1.exer[K project1_task1.cpp fraction.cpp
+]0;py9242yg@csci4:~/t1[py9242yg@csci4 t1]$ ./project1_task1.exe
+Enter the first fraction: numerator and denominator
+3 5
+Enter the second fraction: numerator and denominator
+2 3
+The two fractions entered are
+f1=3/5
+f2=2/3
+f3=0/1
+f4=10/20]0;py9242yg@csci4:~/t1[py9242yg@csci4 t1]$ exit
+
+Script done on Mon 04 Sep 2023 04:44:55 PM CDT
